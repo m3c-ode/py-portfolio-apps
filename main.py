@@ -33,41 +33,28 @@ for i in range(1, len(data)):
     [title, description, url, image] = data[i]
     if i % 2 == 1:
         with leftCol:
-            st.title(title)
+            st.header(title)
             st.image(f"images/{image}")
             st.write(description)
             st.write(url)
     else:
         with rightCol:
-            st.title(title)
+            st.header(title)
             st.image(f"images/{image}")
             st.write(description)
             st.write(url)
 
 # using pandas
 # for index, row in df.iterrows():
-#     print(index)
-#     print(row)
-#     if i % 2 == 1:
+#     if index < 10:
 #         with leftCol:
-#             st.title(row["title"])
+#             st.header(row["title"])
+#             st.image(f"images/{row['image']}")
 #             st.write(row["description"])
 #             st.write(row["url"])
-#             st.image(f"images/{image}")
-
-# with leftCol:
-#     # [title, description, url, image] = [
-#     #     project for index, project in enumerate(data) if index % 2 == 0
-#     # ]
-#     i = 1
-#     for i in range(len(data)):
-#         if i % 2 == 1:
-#             [title, description, url, image] = data[i]
-#             st.title(title)
-#             st.write(description)
-#             st.write(url)
-#             st.write(image)
-
-
-# with rightCol:
-#     st.title("cCol 2")
+#     else:
+#         with rightCol:
+#             st.header(row["title"])
+#             st.image(f"images/{row['image']}")
+#             st.write(row["description"])
+#             st.write(row["url"])
