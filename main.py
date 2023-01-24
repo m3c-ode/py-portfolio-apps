@@ -1,5 +1,6 @@
 import streamlit as st
 import csv
+import pandas
 
 # st.set_page_config(layout="wide")
 
@@ -23,7 +24,9 @@ st.write(description)
 
 with open("./data.csv") as file:
     data = list(csv.reader(file))
+    df = pandas.read_csv("data.csv", sep=",")
 
+print(df)
 leftCol, rightCol = st.columns(2)
 
 for i in range(1, len(data)):
@@ -31,15 +34,26 @@ for i in range(1, len(data)):
     if i % 2 == 1:
         with leftCol:
             st.title(title)
+            st.image(f"images/{image}")
             st.write(description)
             st.write(url)
-            st.write(image)
     else:
         with rightCol:
             st.title(title)
+            st.image(f"images/{image}")
             st.write(description)
             st.write(url)
-            st.write(image)
+
+# using pandas
+# for index, row in df.iterrows():
+#     print(index)
+#     print(row)
+#     if i % 2 == 1:
+#         with leftCol:
+#             st.title(row["title"])
+#             st.write(row["description"])
+#             st.write(row["url"])
+#             st.image(f"images/{image}")
 
 # with leftCol:
 #     # [title, description, url, image] = [
