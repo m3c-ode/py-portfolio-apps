@@ -33,33 +33,33 @@ with open("./data/data.csv") as file:
 # passing a list with ratios in arguments, we can control the width of the columns
 leftCol, emptyCol, rightCol = st.columns([1.5, 0.5, 1.5])
 
-# for i in range(1, len(data)):
-#     [title, description, url, image] = data[i]
-#     if i % 2 == 1:
-#         with leftCol:
-#             st.header(title)
-#             st.image(f"images/{image}")
-#             st.write(description)
-#             st.write(f"[Source Code]({row['url']})")
-#     else:
-#         with rightCol:
-#             st.header(title)
-#             st.image(f"images/{image}")
-#             st.write(description)
-#             st.write(url)
+for i in range(1, len(data)):
+    [title, description, url, image] = data[i]
+    if i % 2 == 1:
+        with leftCol:
+            st.header(title)
+            st.image(f"images/{image}")
+            st.write(description)
+            st.write(f"[Source Code]({url})")
+    else:
+        with rightCol:
+            st.header(title)
+            st.image(f"images/{image}")
+            st.write(description)
+            st.write(url)
 
-# using pandas
-with leftCol:
-    for index, row in df[:10].iterrows():
-        st.header(row["title"])
-        st.image(f"images/{row['image']}")
-        st.write(row["description"])
-        st.write(f"[Source Code]({row['url']})")
+# # using pandas
+# with leftCol:
+#     for index, row in df[:10].iterrows():
+#         st.header(row["title"])
+#         st.image(f"images/{row['image']}")
+#         st.write(row["description"])
+#         st.write(f"[Source Code]({row['url']})")
 
-with rightCol:
-    for index, row in df[10:].iterrows():
-        st.header(row["title"])
-        st.image(f"images/{row['image']}")
-        st.write(row["description"])
-        # st.write(row["url"])
-        st.write(f"[Source Code]({row['url']})")
+# with rightCol:
+#     for index, row in df[10:].iterrows():
+#         st.header(row["title"])
+#         st.image(f"images/{row['image']}")
+#         st.write(row["description"])
+#         # st.write(row["url"])
+#         st.write(f"[Source Code]({row['url']})")
