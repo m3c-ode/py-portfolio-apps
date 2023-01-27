@@ -1,6 +1,6 @@
 title,description,url,image
 Todo App,A distraction-free web app to help you focus on creating and completing tasks.,https://m3c-ode-py-portfolio-apps-home-bzv040.streamlit.app/Todo_Manager,1.png
-File Viewer,Simple app to upload and visualize any .csv or .xlsx files.,https://m3c-ode-py-portfolio-apps-home-bzv040.streamlit.app/File_Viewer
+File Viewer,Simple app to upload and visualize any .csv or .xlsx files.,https://m3c-ode-py-portfolio-apps-home-bzv040.streamlit.app/File_Viewer,16.png
 Portfolio Website,A website built entirely in Python to showcase coding projects and apps.,https://github.com/m3c-ode/py-portfolio-apps,2.png
 PDF Templates,A script that generates PDF templates of multiple pages given some predefined guidelines.,TBC,3.png
 PDF Invoices,A script that reads invoice records from Excel files and automatically generates PDF invoices.,TBC,4.png
