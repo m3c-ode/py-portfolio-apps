@@ -61,4 +61,5 @@ with rightCol:
         st.header(row["title"])
         st.image(f"images/{row['image']}")
         st.write(row["description"])
-        st.write(row["url"])
+        # st.write(row["url"])
+        st.write(f"[Source Code]({row['url']})")
