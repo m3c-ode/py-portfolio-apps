@@ -1,15 +1,15 @@
 import smtplib, ssl
 import os
-import env
+import streamlit as st
 
+
+password = os.getenv("PASSWORD") or st.secrets["PASSWORD"]
+print("🚀 ~ file: send_email.py:12 ~ password", password)
 
 # parameters for stmplib
 def send_email(sender, message_content):
     host = "smtp.gmail.com"
     port = 465
-
-    password = os.getenv("PASSWORD")
-    print("🚀 ~ file: send_email.py:12 ~ password", password)
     username = "maxime.marechalmccoy@gmail.com"
     recipient = "maxime.marechalmccoy@gmail.com"
 
@@ -26,3 +26,7 @@ From: {sender}
     with smtplib.SMTP_SSL(host, port, context=context) as server:
         server.login(username, password)
         server.sendmail(username, recipient, message)
+
+
+if __name__ == "__main__":
+    print("test")
