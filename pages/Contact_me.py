@@ -4,12 +4,14 @@ import send_email
 st.header("Contact form")
 
 with st.form(key="contactForm"):
-    sender = st.text_input("Email: ", placeholder="enter you email address here...")
+    sender = st.text_input(
+        "Your/Votre Email: ", placeholder="Enter you email address here..."
+    )
     message_content = st.text_area(
-        "Message: ", placeholder="let me know what you want to share!"
+        "Your/Votre Message: ", placeholder="Let me know what you want to share!"
     )
 
-    button = st.form_submit_button("Send")
+    button = st.form_submit_button("Send/Envoyer")
     if button:
         print("Send email")
         print(sender)

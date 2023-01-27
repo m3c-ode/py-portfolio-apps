@@ -4,7 +4,7 @@ import pandas
 
 st.set_page_config(layout="wide")
 
-st.title("Portfolio Website")
+st.title("Portfolio Website - m3's Small Tools")
 col1, col2 = st.columns(2)
 
 with col1:
@@ -13,20 +13,23 @@ with col1:
 with col2:
     st.title("Maxime Maréchal-McCoy")
     content = """ 
-     Hi, this is Maxime. Lorem ipsum blablabla
+     Hi, this is Maxime!\n 
+     You will see different projects I am currently working on this page. On the left side, you can browse some of the apps I have coded and that you can use. Some might not be availble yet.
+     Enjoy, have fun! And any comments are accepted: You can send me an email using the contact form!\n
+     Cheers!\n
+     Maxime.
        """
     st.info(content)
 
 description = """ 
-    Below you can find some of thre apps I have built. Feel free to contact me! 
+    Below you can find some of the apps I have built. Feel free to contact me! 
  """
 st.write(description)
 
-with open("./data.csv") as file:
+with open("./data/data.csv") as file:
     data = list(csv.reader(file))
-    df = pandas.read_csv("data.csv", sep=",")
+    df = pandas.read_csv("data/data.csv", sep=",")
 
-# print(df)
 # passing a list with ratios in arguments, we can control the width of the columns
 leftCol, emptyCol, rightCol = st.columns([1.5, 0.5, 1.5])
 
