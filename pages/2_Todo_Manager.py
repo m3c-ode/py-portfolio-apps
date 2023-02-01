@@ -13,6 +13,7 @@ def add_todo():
     st.session_state["newTodo"] = ""
 
 
+# function to use when wanting to delete multiple todos at once: copy the list, get the session state of the unique CB keys, delete associated keys in the todos copy, re-write the list, remove checkboxes from the app
 def complete_todos():
     """remove items to be deleted from todos and return list of items to be deleted"""
     del_key_list = []
@@ -20,17 +21,18 @@ def complete_todos():
     global todos
     print("todos", todos)
     todos_copy = todos[:]
-    todos_copy.reverse()
+    # todos_copy.reverse()
     print("todos revq", todos_copy)
     list_len = len(todos)
     for index, todo in enumerate(todos):
         if st.session_state[f"cb_{index}"]:
             del_key_list.append(f"cb_{index}")
-            todos_copy.pop(list_len - (index + 1))
+            todos_copy.pop(index)
 
     print("del key list", del_key_list)
     print("todos copy del", todos_copy)
-    functions.addTodoToFile(reversed(todos_copy))
+    # functions.addTodoToFile(reversed(todos_copy))
+    functions.addTodoToFile(todos_copy)
 
     return del_key_list
 
@@ -48,11 +50,11 @@ st.write(
 todos = functions.showTodos()
 for todo in todos:
     checkbox = st.checkbox(todo, key=f"cb_{todos.index((todo))}")
-    # if checkbox == True:
-    #     del st.session_state[todo]
-    #     todos.pop(todos.index(todo))
-    #     functions.addTodoToFile(todos)
-    #     st.experimental_rerun()
+    if checkbox == True:
+        del st.session_state[f"cb_{todos.index((todo))}"]
+        todos.pop(todos.index(todo))
+        functions.addTodoToFile(todos)
+        st.experimental_rerun()
 
 newTodo = st.text_input(
     "todo",
@@ -62,12 +64,12 @@ newTodo = st.text_input(
     on_change=add_todo,
 )
 
-# add completed
-st.button("Delete Completed", key="completed_todo")
+# # add completed
+# st.button("Delete Completed", key="completed_todo")
 
-if st.session_state["completed_todo"]:
-    del_todos = complete_todos()
-    if del_todos:
-        for item in del_todos:
-            del st.session_state[item]
-            st.experimental_rerun()
+# if st.session_state["completed_todo"]:
+#     del_todos = complete_todos()
+#     if del_todos:
+#         for item in del_todos:
+#             del st.session_state[item]
+#             st.experimental_rerun()
