@@ -8,4 +8,4 @@ $ streamlit run Home.py
 
 to run the app.
 
-This app will also have a deployment on streamlit.
+This app will also have a deployment on streamlit to this url: https://m3c-ode-py-portfolio-apps-home-bzv040.streamlit.app/
